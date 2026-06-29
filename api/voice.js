@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'lT7xr6MSlraCutJtMc1a';
+  const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'IKne3meq5aSn9XLyUdCD';
   const XI_KEY = process.env.ELEVENLABS_API_KEY;
 
   if (!XI_KEY) {
