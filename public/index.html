@@ -53,7 +53,7 @@ html,body{height:100%;background:var(--warm-bg);font-family:var(--font-b);color:
 <body>
 <div class="page">
 <div class="hdr">
-  <div class="hdr-av"><svg width="46" height="46" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#EDE0D4"/><rect x="7" y="27" width="26" height="16" rx="2" fill="#2C3E50"/><ellipse cx="20" cy="18" rx="9" ry="10" fill="#C8956C"/><path d="M11 16 Q11 8 20 8 Q29 8 29 16 Q27 11 20 11 Q13 11 11 16Z" fill="#2C2C2C"/><ellipse cx="16.5" cy="18" rx="1.4" ry="1.3" fill="#fff"/><ellipse cx="23.5" cy="18" rx="1.4" ry="1.3" fill="#fff"/><circle cx="16.8" cy="18.2" r=".8" fill="#2C2C2C"/><circle cx="23.8" cy="18.2" r=".8" fill="#2C2C2C"/><rect x="13.5" y="16.5" width="5.5" height="3.5" rx="1.5" stroke="#3A2E28" stroke-width="1.1" fill="none"/><rect x="21" y="16.5" width="5.5" height="3.5" rx="1.5" stroke="#3A2E28" stroke-width="1.1" fill="none"/><line x1="19" y1="18.2" x2="21" y2="18.2" stroke="#3A2E28" stroke-width="1.1"/><path d="M17.5 23 Q20 24.5 22.5 23" stroke="#A06040" stroke-width=".9" fill="none" stroke-linecap="round"/></svg></div>
+  <div class="hdr-av"><svg width="46" height="46" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#EDE0D4"/><rect x="7" y="27" width="26" height="16" rx="2" fill="#2C3E50"/><polygon points="20,27 15,32 20,30 25,32" fill="#F5F5F5"/><polygon points="20,29 18.5,36 20,34 21.5,36" fill="#8B1A1A"/><rect x="17" y="24" width="6" height="5" rx="1" fill="#C8956C"/><ellipse cx="20" cy="18" rx="9" ry="10" fill="#C8956C"/><path d="M11 16 Q11 8 20 8 Q29 8 29 16 Q27 11 20 11 Q13 11 11 16Z" fill="#2C2C2C"/><ellipse cx="11.5" cy="19" rx="1.8" ry="2.2" fill="#BF8860"/><ellipse cx="28.5" cy="19" rx="1.8" ry="2.2" fill="#BF8860"/><ellipse cx="16.5" cy="18" rx="1.4" ry="1.3" fill="#fff"/><ellipse cx="23.5" cy="18" rx="1.4" ry="1.3" fill="#fff"/><circle cx="16.8" cy="18.2" r=".8" fill="#2C2C2C"/><circle cx="23.8" cy="18.2" r=".8" fill="#2C2C2C"/><path d="M14.5 15.8 Q16.5 14.8 18.5 15.8" stroke="#2C2C2C" stroke-width="1.1" stroke-linecap="round" fill="none"/><path d="M21.5 15.8 Q23.5 14.8 25.5 15.8" stroke="#2C2C2C" stroke-width="1.1" stroke-linecap="round" fill="none"/><rect x="13.5" y="16.5" width="5.5" height="3.5" rx="1.5" stroke="#3A2E28" stroke-width="1.1" fill="none"/><rect x="21" y="16.5" width="5.5" height="3.5" rx="1.5" stroke="#3A2E28" stroke-width="1.1" fill="none"/><line x1="19" y1="18.2" x2="21" y2="18.2" stroke="#3A2E28" stroke-width="1.1"/><line x1="13.5" y1="18.2" x2="12" y2="17.8" stroke="#3A2E28" stroke-width="1.1"/><line x1="26.5" y1="18.2" x2="28" y2="17.8" stroke="#3A2E28" stroke-width="1.1"/><path d="M19.5 20 Q20 21.5 20.5 20" stroke="#BF8860" stroke-width=".8" fill="none" stroke-linecap="round"/><path d="M17.5 23 Q20 24.5 22.5 23" stroke="#A06040" stroke-width=".9" fill="none" stroke-linecap="round"/></svg></div>
   <div class="hdr-info">
     <div class="hdr-name">柯全恒 Rick Ko <span class="pro">PRO</span> <span class="online"></span></div>
     <div class="hdr-sub">天來人才管理顧問 · 創辦人暨執行長</div>
@@ -64,6 +64,7 @@ html,body{height:100%;background:var(--warm-bg);font-family:var(--font-b);color:
   <button class="pill" onclick="ask('私董會是什麼？')">私董會是什麼？</button>
   <button class="pill" onclick="ask('30人公司需要人資嗎？')">30人需要人資嗎？</button>
   <button class="pill" onclick="ask('主管不敢做決定怎麼辦？')">主管不敢決定</button>
+  <button class="pill" onclick="ask('Action Learning和私董會有什麼不同？')">vs Action Learning</button>
   <button class="pill" onclick="ask('AI對人資的衝擊？')">AI 對人資衝擊</button>
   <button class="pill" onclick="ask('員工流動率很高怎麼辦？')">員工流動率高</button>
 </div>
@@ -84,9 +85,15 @@ html,body{height:100%;background:var(--warm-bg);font-family:var(--font-b);color:
 <script>
 const SYSTEM = `你是柯全恒（Rick Ko），天來人才管理顧問股份有限公司創辦人暨執行長，同時擔任新竹人力資源協會理事長。你在人力資源領域深耕超過20年，歷經應用材料、友達光電、隆達電子等公司的人資高管職位，於2016年創辦天來人才，專注於組織發展、人才管理與高階領導力培育。
 
-說話風格：先同理→再給建議→用故事帶觀點→口語溫暖→只說一個最重要的觀點→資訊不夠先追問。
-語氣：繁體中文口語，避免條列符號，250字以內說完整。
-常用語：對、對，沒錯，肯定的嘛，我覺得，這樣的話也許……
+說話風格：
+- 先同理對方處境，再給建議
+- 用故事或比喻帶出觀點，不要條列教科書
+- 語氣溫暖口語，像面對面談話
+- 只給一個最重要的觀點說透，說完整
+- 資訊不夠時先追問
+- 繁體中文口語，避免條列符號
+- 常用語：「對、對」「沒錯」「肯定的嘛」「我覺得」「這樣的話也許……」
+- 回答200-250字，完整表達不截斷
 
 核心知識：私董會（經營管理的互助會）、BANI時代決策三帖解方、共享人資、組織設計新型態、數位轉型三部曲。
 私董會：適合正在發生、複雜難解、你能影響的問題。不管黑貓白貓，會抓老鼠的就是好貓。`;
@@ -150,6 +157,8 @@ async function doSend(){
       addMsg('assistant',full);
       history.push({role:'assistant',content:full});
       if(voiceOn)generateVoice(full);
+    }else{
+      addMsg('assistant','抱歉，Rick 沒有回應，請再試一次。');
     }
   }catch(e){removeTyping();addMsg('assistant','抱歉，連線出現問題：'+e.message);}
   busy=false;document.getElementById('sb').disabled=false;
