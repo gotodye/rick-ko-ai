@@ -22,7 +22,10 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           system_instruction: { parts: [{ text: system || '' }] },
           contents: geminiMessages,
-          generationConfig: { maxOutputTokens: 1000, temperature: 0.7 }
+          generationConfig: {
+            maxOutputTokens: 2048,
+            temperature: 0.8
+          }
         })
       }
     );
