@@ -6,13 +6,18 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'lT7xr6MSlraCutJtMc1a';
+  const XI_KEY = process.env.ELEVENLABS_API_KEY;
+
+  if (!XI_KEY) {
+    return res.status(500).json({ error: 'ELEVENLABS_API_KEY not set' });
+  }
 
   try {
     const url = 'https://api.elevenlabs.io/v1/text-to-speech/' + VOICE_ID;
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'xi-api-key': process.env.ELEVENLABS_API_KEY,
+        'xi-api-key': XI_KEY,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -29,7 +34,10 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       const err = await response.json().catch(() => ({}));
-      return res.status(response.status).json({ error: err.detail?.message || 'ElevenLabs error' });
+      return res.status(response.status).json({
+        error: err.detail?.message || 'ElevenLabs error ' + response.status,
+        key_prefix: XI_KEY.slice(0, 8)
+      });
     }
 
     const audioBuffer = await response.arrayBuffer();
